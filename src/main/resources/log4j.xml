@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %p %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Operate Appender -->
+	
+	<appender name="SERVICE-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/opt/chufangserver/logs/catalina.out" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="threshold" value="info" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[BP%d{yyyy-MM-dd HH:mm:ss} %p %c{1}.%M(%L) | %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- Application Loggers -->
+	<logger name="com.hongbao">
+		<level value="info" />
+	</logger>
+
+	
+	<logger name="org.springframework.jdbc.support">
+		<level  value="debug" />
+		<appender-ref ref="SERVICE-APPENDER"/>
+	</logger>
+	
+	<logger name="org.springframework.scheduling.quartz.LocalDataSourceJobStore" additivity="false">
+		<level value="ERROR"/>
+	</logger>
+	
+	<!-- Root Logger -->
+	<root>
+		<priority value="info" />
+		 <!--<appender-ref ref="console" /> -->
+		  <appender-ref ref="SERVICE-APPENDER"/>
+	</root>
+
+</log4j:configuration>

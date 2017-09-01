@@ -1,0 +1,18 @@
+[{
+  'children': [
+    {
+      'code': 'MENU_TJDZ',
+      'description': '调剂对账',
+      'id': 305,
+      'name': '调剂对账',
+      'path': '/tjdz/index',
+      'type': 1,
+      'url': 'tjdz/tjdz'
+    }
+  ],
+  'code': 'DIRECTORY_GDGN',
+  'description': '更多功能',
+  'id': 304,
+  'name': '更多功能',
+  'type': 0
+}]

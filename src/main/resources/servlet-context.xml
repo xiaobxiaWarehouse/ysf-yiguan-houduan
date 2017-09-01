@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven>
+		<argument-resolvers>
+			<beans:bean class="com.chufang.resolver.UserInfoResolver"></beans:bean>
+		</argument-resolvers>
+	</annotation-driven>
+
+	<context:component-scan base-package="com.chufang">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	</context:component-scan>
+
+	<interceptors>
+		<beans:bean class="com.chufang.interceptor.ChufangInteceptor"></beans:bean>
+	</interceptors>
+	<default-servlet-handler/>
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<beans:property name="prefix" value="" />
+		<beans:property name="suffix" value=".ftl" />
+		<beans:property name="order" value="2" />
+		<beans:property name="contentType" value="text/html; charset=utf-8" />
+		<beans:property name="exposeRequestAttributes" value="true" />
+		<beans:property name="exposeSessionAttributes" value="true" />
+		<beans:property name="exposeSpringMacroHelpers" value="true" />
+		<beans:property name="requestContextAttribute" value="request" />
+		<beans:property name="cache" value="true" />
+	</beans:bean>
+
+	<beans:bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<beans:property name="templateLoaderPath" value="/WEB-INF/view/" />
+		<beans:property name="freemarkerSettings">
+			<beans:props>
+				<beans:prop key="template_update_delay">0</beans:prop>
+				<beans:prop key="default_encoding">utf-8</beans:prop>
+				<beans:prop key="locale">zh_CN</beans:prop>
+				<beans:prop key="number_format">0.##</beans:prop>
+				<beans:prop key="whitespace_stripping">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+    <beans:bean id="jsonHttpMessageConverter"  
+        class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
+        <beans:property name="supportedMediaTypes">  
+            <beans:list>   
+                <beans:value>application/json;charset=UTF-8</beans:value>  
+             </beans:list>  
+         </beans:property>   
+    </beans:bean> 
+	
+</beans:beans>

@@ -1,0 +1,17 @@
+[{
+  'code': 'MENU_WTTJ',
+  'description': '委托调剂',
+  'id': 301,
+  'name': '委托调剂',
+  'path': '/wttj/index',
+  'type': 1,
+  'url': 'wttj/wttj'
+}, {
+  'code': 'MENU_CXWTTJ',
+  'description': '查询委托调剂',
+  'id': 302,
+  'name': '查询委托调剂',
+  'path': '/cxwttj/index',
+  'type': 1,
+  'url': 'cxwttj/cxwttj'
+}]

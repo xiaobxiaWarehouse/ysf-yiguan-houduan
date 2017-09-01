@@ -1,0 +1,69 @@
+[{
+  'code': 'MENU_WTTJ',
+  'description': '委托调剂',
+  'id': 301,
+  'name': '委托调剂',
+  'path': '/wttj/index',
+  'type': 1,
+  'url': 'wttj/wttj'
+}, {
+  'code': 'MENU_CXWTTJ',
+  'description': '查询委托调剂',
+  'id': 302,
+  'name': '查询委托调剂',
+  'path': '/cxwttj/index',
+  'type': 1,
+  'url': 'cxwttj/cxwttj'
+}, {
+  'children': [
+    {
+      'code': 'MENU_TJDZ',
+      'description': '调剂对账',
+      'id': 305,
+      'name': '调剂对账',
+      'path': '/tjdz/index',
+      'type': 1,
+      'url': 'tjdz/tjdz'
+    }, {
+      'code': 'MENU_YGXX',
+      'description': '医馆信息',
+      'id': 306,
+      'name': '医馆信息',
+      'path': '/ygxx/index',
+      'type': 0,
+      'url': 'ygxx/ygxx',
+      'children': [
+        {
+          'code': 'MENU_YGXX_JBXX',
+          'description': '基本信息',
+          'id': 307,
+          'name': '基本信息',
+          'path': '/ygxx/index',
+          'type': 1,
+          'url': 'ygxx/ygxx'
+        }, {
+          'code': 'MENU_YGXX_YSFWS',
+          'description': '已合作药事服务商',
+          'id': 308,
+          'name': '已合作药事服务商',
+          'path': '/ygxx/ysfws',
+          'type': 1,
+          'url': 'ygxx/ysfws'
+        }, {
+          'code': 'MENU_YGXX_YUANGONG',
+          'description': '员工信息',
+          'id': 309,
+          'name': '员工信息',
+          'path': '/ygxx/yuangong',
+          'type': 1,
+          'url': 'ygxx/yuangong'
+        }
+      ]
+    }
+  ],
+  'code': 'DIRECTORY_GDGN',
+  'description': '更多功能',
+  'id': 304,
+  'name': '更多功能',
+  'type': 0
+}]
